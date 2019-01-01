@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4993D6B21C9D507000A9AD2 /* RotaryDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4993D6A21C9D507000A9AD2 /* RotaryDial.swift */; };
 		E4D2E46021BD2A95004DE74F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2E45F21BD2A95004DE74F /* AppDelegate.swift */; };
 		E4D2E46221BD2A95004DE74F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D2E46121BD2A95004DE74F /* ViewController.swift */; };
-		E4D2E46521BD2A95004DE74F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D2E46321BD2A95004DE74F /* Main.storyboard */; };
 		E4D2E46721BD2A98004DE74F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D2E46621BD2A98004DE74F /* Assets.xcassets */; };
 		E4D2E46A21BD2A98004DE74F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D2E46821BD2A98004DE74F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E4993D6A21C9D507000A9AD2 /* RotaryDial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotaryDial.swift; sourceTree = "<group>"; };
 		E4D2E45C21BD2A95004DE74F /* Hamasen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hamasen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D2E45F21BD2A95004DE74F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D2E46121BD2A95004DE74F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E4D2E46421BD2A95004DE74F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4D2E46621BD2A98004DE74F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4D2E46921BD2A98004DE74F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4D2E46B21BD2A98004DE74F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			children = (
 				E4D2E45F21BD2A95004DE74F /* AppDelegate.swift */,
 				E4D2E46121BD2A95004DE74F /* ViewController.swift */,
-				E4D2E46321BD2A95004DE74F /* Main.storyboard */,
+				E4993D6A21C9D507000A9AD2 /* RotaryDial.swift */,
 				E4D2E46621BD2A98004DE74F /* Assets.xcassets */,
 				E4D2E46821BD2A98004DE74F /* LaunchScreen.storyboard */,
 				E4D2E46B21BD2A98004DE74F /* Info.plist */,
@@ -124,7 +124,6 @@
 			files = (
 				E4D2E46A21BD2A98004DE74F /* LaunchScreen.storyboard in Resources */,
 				E4D2E46721BD2A98004DE74F /* Assets.xcassets in Resources */,
-				E4D2E46521BD2A95004DE74F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,20 +136,13 @@
 			files = (
 				E4D2E46221BD2A95004DE74F /* ViewController.swift in Sources */,
 				E4D2E46021BD2A95004DE74F /* AppDelegate.swift in Sources */,
+				E4993D6B21C9D507000A9AD2 /* RotaryDial.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E4D2E46321BD2A95004DE74F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4D2E46421BD2A95004DE74F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E4D2E46821BD2A98004DE74F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
