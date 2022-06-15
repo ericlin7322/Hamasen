@@ -10,6 +10,7 @@ import UIKit
 
 class RotaryDial: UIView {
     var gestureRecognizer = RotationGestureRecognizer()
+    var delegate: RotaryDialDelegate?
     
     var startAngle: CGFloat {
         get { return renderer.startAngle }
@@ -24,6 +25,7 @@ class RotaryDial: UIView {
     var timer = Timer()
     var timerActive = false
     var value: Int?
+    var valueSet = false
     var changeAngle: CGFloat?
     
     let renderer = RotaryDialRenderer()
@@ -76,76 +78,99 @@ class RotaryDial: UIView {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 1 / 10 {
                     value = 1
+                    valueSet = true
                 }
             }else if renderer.number[1].frame.contains(renderer.startLocation) {
                 if renderer.increaseAngle < boundedAngle && angle < CGFloat.pi * 1.8 * 2 / 10 {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 2 / 10 {
                     value = 2
+                    valueSet = true
                 }
             }else if renderer.number[2].frame.contains(renderer.startLocation) {
                 if renderer.increaseAngle < boundedAngle && angle < CGFloat.pi * 1.8 * 3 / 10 {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 3 / 10 {
                     value = 3
+                    valueSet = true
                 }
             }else if renderer.number[3].frame.contains(renderer.startLocation) {
                 if renderer.increaseAngle < boundedAngle && angle < CGFloat.pi * 1.8 * 4 / 10 {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 4 / 10 {
                     value = 4
+                    valueSet = true
                 }
             }else if renderer.number[4].frame.contains(renderer.startLocation) {
                 if renderer.increaseAngle < boundedAngle && angle < CGFloat.pi * 1.8 * 5 / 10 {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 5 / 10 {
                     value = 5
+                    valueSet = true
                 }
             }else if renderer.number[5].frame.contains(renderer.startLocation) {
                 if renderer.increaseAngle < boundedAngle && angle < CGFloat.pi * 1.8 * 6 / 10 {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 6 / 10 {
                     value = 6
+                    valueSet = true
                 }
             }else if renderer.number[6].frame.contains(renderer.startLocation) {
                 if renderer.increaseAngle < boundedAngle && angle < CGFloat.pi * 1.8 * 7 / 10 {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 7 / 10 {
                     value = 7
+                    valueSet = true
                 }
             }else if renderer.number[7].frame.contains(renderer.startLocation) {
                 if renderer.increaseAngle < boundedAngle && angle < CGFloat.pi * 1.8 * 8 / 10 {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 8 / 10 {
                     value = 8
+                    valueSet = true
                 }
             }else if renderer.number[8].frame.contains(renderer.startLocation) {
                 if renderer.increaseAngle < boundedAngle && angle < CGFloat.pi * 1.8 * 9 / 10 {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 9 / 10 {
                     value = 9
+                    valueSet = true
                 }
             }else if renderer.number[9].frame.contains(renderer.startLocation) {
                 if renderer.increaseAngle < boundedAngle && angle < CGFloat.pi * 1.8 * 10 / 10 {
                     renderer.increaseAngle = boundedAngle
                     changeAngle = renderer.increaseAngle - renderer.startAngle
                     renderer.setPointerAngle(CGFloat(angle), animated: false)
+                }else if angle >= CGFloat.pi * 1.8 * 10 / 10 {
                     value = 0
+                    valueSet = true
                 }
             }
             
             if gesture.state == .ended || gesture.state == .cancelled {
                 timer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(reSpin), userInfo: nil, repeats: true)
                 timerActive = true
+                if valueSet {
+                    delegate?.value(number: value!)
+                }
             }
         }
     }
@@ -157,6 +182,7 @@ class RotaryDial: UIView {
         }else {
             timer.invalidate()
             timerActive = false
+            valueSet = false
         }
         
     }
